@@ -16,10 +16,11 @@ class MealViewModel: ObservableObject{
     private init() {}
     
     private let baseURL = "https://www.themealdb.com/api/json/v1/1/"
-    private let dessertSuffix = "filter.php?c=Dessert"
+    private let mealSuffix = "filter.php?c=Dessert"
+    private let mealDetailSuffix = "lookup.php?i="
     
     func fetchMeals() async {
-        guard let url = URL(string: "\(baseURL)\(dessertSuffix)") else { return }
+        guard let url = URL(string: "\(baseURL)\(mealSuffix)") else { return }
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -33,5 +34,14 @@ class MealViewModel: ObservableObject{
             print("Error fetching meals: \(error.localizedDescription)")
         }
     }
+    
+//    func fetchMealDetail(by id : String) async{
+//        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(id)") else { return }
+//        
+//        do{
+//            let (data, _) = try await URLSession.shared.data(from: url)
+//            let response = try JSONDecoder().decode(Meal, from: <#T##Data#>)
+//        }
+//    }
     
 }

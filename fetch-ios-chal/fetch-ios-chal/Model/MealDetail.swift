@@ -77,3 +77,7 @@ struct MealDetail: Identifiable, Codable {
         self.measurements = measurements
     }
 }
+
+struct MealDetailResponse: Codable{
+    let mealDetails : [MealDetail]
+}
