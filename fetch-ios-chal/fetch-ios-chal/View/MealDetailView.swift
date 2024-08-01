@@ -41,7 +41,7 @@ struct MealDetailView: View {
                 await viewModel.fetchMealDetail(by: mealId)
             }
         }
-        .navigationTitle("Meal Detail")
+        .navigationTitle("Meal Detail View")
     }
 }
 
