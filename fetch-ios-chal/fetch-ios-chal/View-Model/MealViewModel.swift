@@ -42,7 +42,7 @@ class MealViewModel: ObservableObject{
             let (data, _) = try await URLSession.shared.data(from: url)
             let response = try JSONDecoder().decode(MealDetailResponse.self, from: data)
             DispatchQueue.main.async {
-                self.selectedMealDetail = response.mealDetails.first
+                self.selectedMealDetail = response.meals.first
             }
         }
         

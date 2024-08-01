@@ -39,6 +39,7 @@ struct MealDetail: Identifiable, Codable {
         case imageSource = "strImageSource"
         case creativeCommonsConfirmed = "strCreativeCommonsConfirmed"
         case dateModified = "dateModified"
+        
     }
     
     init(from decoder: Decoder) throws{
@@ -63,12 +64,14 @@ struct MealDetail: Identifiable, Codable {
         var ingredients: [String] = []
         var measurements: [String] = []
         
+        let dynamicContainer = try decoder.container(keyedBy: DynamicCodingKeys.self)
+        
         for i in 1...20 {
-            if let ingredient = try container.decodeIfPresent(String.self , forKey: CodingKeys(stringValue: "\(ingredientPrefix)\(i)")!), !ingredient.isEmpty{
+            if let ingredient = try dynamicContainer.decodeIfPresent(String.self, forKey: DynamicCodingKeys(stringValue: "\(ingredientPrefix)\(i)")!), !ingredient.isEmpty {
                 ingredients.append(ingredient)
             }
             
-            if let measurement = try container.decodeIfPresent(String.self , forKey: CodingKeys(stringValue: "\(measurePrefix)\(i)")!), !measurement.isEmpty{
+            if let measurement = try dynamicContainer.decodeIfPresent(String.self, forKey: DynamicCodingKeys(stringValue: "\(measurePrefix)\(i)")!), !measurement.isEmpty {
                 measurements.append(measurement)
             }
         }
@@ -78,6 +81,19 @@ struct MealDetail: Identifiable, Codable {
     }
 }
 
+// Define a dynamic CodingKeys enum to handle arbitrary keys
+private struct DynamicCodingKeys: CodingKey {
+    var stringValue: String
+    init?(stringValue: String) {
+        self.stringValue = stringValue
+    }
+    
+    var intValue: Int?
+    init?(intValue: Int) {
+        return nil
+    }
+}
+
 struct MealDetailResponse: Codable{
-    let mealDetails : [MealDetail]
+    let meals : [MealDetail]
 }
