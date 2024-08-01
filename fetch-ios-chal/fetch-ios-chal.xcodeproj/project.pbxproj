@@ -15,6 +15,7 @@
 		95C429922C5AF731005B255C /* fetch_ios_chal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95C429902C5AF731005B255C /* fetch_ios_chal.xcdatamodeld */; };
 		95C4299C2C5AF847005B255C /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4299B2C5AF847005B255C /* Meal.swift */; };
 		95C4299E2C5AFA6A005B255C /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4299D2C5AFA6A005B255C /* MealDetail.swift */; };
+		95C429A02C5B0168005B255C /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4299F2C5B0168005B255C /* MealViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		95C429912C5AF731005B255C /* fetch_ios_chal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fetch_ios_chal.xcdatamodel; sourceTree = "<group>"; };
 		95C4299B2C5AF847005B255C /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		95C4299D2C5AFA6A005B255C /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
+		95C4299F2C5B0168005B255C /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		95C4299A2C5AF7CC005B255C /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
+				95C4299F2C5B0168005B255C /* MealViewModel.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95C4299C2C5AF847005B255C /* Meal.swift in Sources */,
+				95C429A02C5B0168005B255C /* MealViewModel.swift in Sources */,
 				95C4298F2C5AF731005B255C /* Persistence.swift in Sources */,
 				95C429882C5AF730005B255C /* ContentView.swift in Sources */,
 				95C4299E2C5AFA6A005B255C /* MealDetail.swift in Sources */,
