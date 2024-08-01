@@ -35,13 +35,20 @@ class MealViewModel: ObservableObject{
         }
     }
     
-//    func fetchMealDetail(by id : String) async{
-//        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(id)") else { return }
-//        
-//        do{
-//            let (data, _) = try await URLSession.shared.data(from: url)
-//            let response = try JSONDecoder().decode(Meal, from: <#T##Data#>)
-//        }
-//    }
+    func fetchMealDetail(by id : String) async{
+        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(id)") else { return }
+        
+        do{
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let response = try JSONDecoder().decode(MealDetailResponse.self, from: data)
+            DispatchQueue.main.async {
+                self.selectedMealDetail = response.mealDetails.first
+            }
+        }
+        
+        catch{
+            print("Error fetching meal detail \(id): \(error.localizedDescription)")
+        }
+    }
     
 }
