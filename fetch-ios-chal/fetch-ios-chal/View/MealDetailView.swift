@@ -16,10 +16,18 @@ struct MealDetailView: View {
             if let mealDetail = viewModel.selectedMealDetail{
                 Text(mealDetail.name)
                     .font(.largeTitle)
+                    .foregroundColor(.blue)
+                    .padding()
+                    
+                Text("Instructions")
+                    .font(.title)
                     .padding()
                 Text(mealDetail.instructions)
                     .padding()
                 
+                Text("Ingredients")
+                    .font(.title)
+                    .padding()
                 List{
                     ForEach(Array(zip(mealDetail.ingredients, mealDetail.measurements)), id: \.0){
                         ingredient, measurement in
