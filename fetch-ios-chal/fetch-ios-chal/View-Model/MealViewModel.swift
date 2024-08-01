@@ -36,13 +36,13 @@ class MealViewModel: ObservableObject{
     }
     
     func fetchMealDetail(by id : String) async{
-        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(id)") else { return }
+        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(53049)") else { return }
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
             let response = try JSONDecoder().decode(MealDetailResponse.self, from: data)
             DispatchQueue.main.async {
-                self.selectedMealDetail = response.mealDetails.first
+                self.selectedMealDetail = response.meals.first
             }
         }
         
