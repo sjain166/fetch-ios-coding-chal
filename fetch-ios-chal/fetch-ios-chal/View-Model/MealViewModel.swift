@@ -36,7 +36,7 @@ class MealViewModel: ObservableObject{
     }
     
     func fetchMealDetail(by id : String) async{
-        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(53049)") else { return }
+        guard let url = URL(string: "\(baseURL)\(mealDetailSuffix)\(id)") else { return }
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)

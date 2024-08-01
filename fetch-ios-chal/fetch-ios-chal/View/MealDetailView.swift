@@ -17,7 +17,7 @@ struct MealDetailView: View {
                 Text(mealDetail.name)
                     .font(.largeTitle)
                     .foregroundColor(.blue)
-                    .padding()
+                    .padding(.bottom)
                     
                 Text("Instructions")
                     .font(.title)
@@ -49,10 +49,9 @@ struct MealDetailView: View {
                 await viewModel.fetchMealDetail(by: mealId)
             }
         }
-        .navigationTitle("Meal Detail View")
     }
 }
 
-#Preview {
-    MealDetailView(mealId: "53049")
-}
+//#Preview {
+//    MealDetailView(mealId: "53049")
+//}
